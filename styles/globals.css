@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.image-wrapper {
+  min-height: 300px;
+}

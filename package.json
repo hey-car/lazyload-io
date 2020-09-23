@@ -3,13 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3006",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "intersection-observer": "^0.11.0",
     "next": "9.5.2",
+    "node-fetch": "^2.6.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-intersection-observer": "^8.27.1"
+  },
+  "devDependencies": {
+    "pixel-diff": "^1.0.1",
+    "pngjs": "^5.0.0",
+    "puppeteer": "^5.2.1",
+    "resize-img": "^2.0.0",
+    "yargs": "^15.4.1"
   }
 }

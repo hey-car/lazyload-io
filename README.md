@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This implementation is a proof of concept for Intersection Observer i.e. lazy loading the images through IO. It shows, how we can make sure that the SEO crawlers do not fail to see the images.
+
+To verify how google crawls the page with the lazy loaded images, we can follow the below steps :- 
+Goto the root directoty.
+Run the below command 
+node check_lazyload_seo.js --url=http://localhost:3006
+Open results.html from the root directory and verify the crawler result.
 
 ## Getting Started
 
@@ -10,18 +16,8 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3006](http://localhost:3006) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
