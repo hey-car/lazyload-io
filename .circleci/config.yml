@@ -33,6 +33,10 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   yarn_test: 
     docker:
       - image: node:14.10-slim
