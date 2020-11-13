@@ -1,0 +1,26 @@
+version: 2.1
+workflows:
+  install_only:
+    jobs:
+      - yarn:
+          context: heycar
+jobs:
+  yarn:
+    working_directory: /intersectionobserver
+    docker:
+      - image: node:14.10-slim
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - ${GIT_CHECKOUT_SSH_KEY_FINGERPRINT}
+      - run: apt-get update && apt-get install -y ca-certificates git
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: yarn install --frozen-lockfile
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
