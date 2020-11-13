@@ -1,12 +1,19 @@
 version: 2.1
 workflows:
-  install_only:
+  install_build_only:
     jobs:
       - yarn:
           context: heycar
+      - yarn_test:
+          context: heycar
+          requires:
+            - yarn
+      - yarn_build:
+          context: heycar
+          requires:
+            - yarn
 jobs:
   yarn:
-    working_directory: /intersectionobserver
     docker:
       - image: node:14.10-slim
     steps:
@@ -19,8 +26,35 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: yarn install --frozen-lockfile
+      - run: 
+          name: 'Install Dependencies'
+          command: yarn install --frozen-lockfile
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+  yarn_test: 
+    docker:
+      - image: node:14.10-slim
+    steps:
+        - run: apt-get update && apt-get install -y ca-certificates git
+        - attach_workspace: 
+            at: .
+        - run:
+            name: Unit Test Cases
+            command: |
+              echo "Command to run test cases will go here."
+  yarn_build: 
+    docker:
+      - image: node:14.10-slim
+    steps:
+        - run: apt-get update && apt-get install -y ca-certificates git
+        - attach_workspace: 
+            at: .
+        - run: 
+            name: Build the Next Js project
+            command: next build
+        - save_cache:
+            paths:
+              - node_modules
+            key: v1-dependencies-{{ checksum "package.json" }}
