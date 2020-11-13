@@ -23,7 +23,7 @@
 }
 
 .main ul li{
-  width: 33%;
+  width: 100%;
  list-style: none;
 }
 .main ul li img{
@@ -32,3 +32,8 @@
 
 
 
+@media only screen and (min-width: 768px) {
+  .main ul li{
+    width: 33%;
+  }
+}

@@ -4,7 +4,7 @@ import React from 'react';
 import 'intersection-observer';
 import { useInView } from 'react-intersection-observer';
 
-export const Image = ({srcUrl}) => {
+const Image = ({srcUrl}) => {
     const [ref, inView] = useInView({ triggerOnce: true, rootMargin: '200px' });
     return (
         <div className='image-wrapper'>
@@ -13,3 +13,4 @@ export const Image = ({srcUrl}) => {
         </div>
     )
 }
+export default Image;

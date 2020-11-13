@@ -1,15 +1,18 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 // import fetch from 'node-fetch';
-import {Image} from './components/atoms/Image';
+import Image from './components/atoms/Image';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Lazy-loading images using Intersection observer</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
       </Head>
+      <div className={styles.container}>
+      
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -28,6 +31,7 @@ export default function Home() {
         </ul>
       </main>
     </div>
+    </>
   )
 }
 
