@@ -58,6 +58,7 @@ jobs:
         - run: 
             name: Build the Next Js project
             command: yarn build
+        - run: tar cfz app.tgz package.json node_modules .next
         - save_cache:
             paths:
               - node_modules
