@@ -11,3 +11,12 @@ EXPOSE 3000
 ADD app.tgz .
 
 CMD ["npm", "start"]
+
+# Commands to run to spin up the container from image in local
+# FROM node:alpine
+# WORKDIR /app
+# ADD . /app
+# RUN npm install
+# RUN npm run build
+# EXPOSE 3000
+# CMD ["npm", "start"]

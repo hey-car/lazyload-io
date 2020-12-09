@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-lazyload-io-app
+  labels:
+    app: pod-lazyload-io-app
+spec:
+  containers:
+  - name: k8s-demo-lazyload-io
+    image: arpitvicky/lazyloadio
+    ports:
+    - containerPort: 3000

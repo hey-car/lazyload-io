@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-lazyload-io-app
+  labels: 
+    app: service-lazyload-io-app
+spec:
+  type: NodePort
+  ports: 
+    - targetPort: 3000
+      port : 80
+      nodePort: 30008
+  selector:
+    app: pod-lazyload-io-app
